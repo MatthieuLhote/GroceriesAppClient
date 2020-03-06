@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environnements } from 'src/models/environnements';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private http : HttpClient) {
+    this.loadPeoples();
+  }
+
+  loadPeoples():void{
+    let url = `${environnements.api_url}/people`;
+    this.http.get(url)
+      .subscribe(people => console.log('peoples', people));
+  }
 
 }

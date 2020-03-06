@@ -1,0 +1,31 @@
+<ion-content>
+
+  <form (ngSubmit)="submitAddressForm()">
+    <ion-item>
+      <ion-label>City</ion-label>
+      <ion-input type="text"  [(ngModel)]="formAdress.city" name="city"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Post code</ion-label>
+      <ion-input type="text" [(ngModel)]="formAdress.postCode" name="postCode"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Street</ion-label>
+      <ion-input type="text" [(ngModel)]="formAdress.street" name="street"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>House Number</ion-label>
+      <ion-input type="text" [(ngModel)]="formAdress.houseNumber" name="houseNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Box Number</ion-label>
+      <ion-input type="text" [(ngModel)]="formAdress.boxNumber" name="boxNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Country</ion-label>
+      <ion-input type="text" [(ngModel)]="formAdress.country" name="country"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Suivant</button>
+  </form>
+
+</ion-content>

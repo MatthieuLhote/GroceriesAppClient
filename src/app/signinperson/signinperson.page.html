@@ -1,0 +1,27 @@
+<ion-content>
+
+  <form (ngSubmit)="submitPersonForm()">
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="form.name" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>First Name</ion-label>
+      <ion-input type="text" [(ngModel)]="form.firstName" name="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Phone Number</ion-label>
+      <ion-input type="tel" [(ngModel)]="form.phoneNumber" name="phoneNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Birth Date</ion-label>
+      <ion-input type="date" [(ngModel)]="form.birthDate" name="birthDate"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Are you going to Sell something ? </ion-label>
+      <ion-toggle color="secondary" [(ngModel)]="form.seller" name="seller"></ion-toggle>
+    </ion-item>
+    <button ion-button type="submit" block>Suivant</button>
+  </form>
+
+</ion-content>
