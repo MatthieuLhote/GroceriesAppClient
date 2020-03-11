@@ -6,15 +6,50 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ion-slides class="header-img" pager="true">
+    <ion-slide>
+        <ion-thumbnail class="img-header-thumbnail" slot="start">
+          <ion-img class="img-header" src="../assets/image/beer.jpg"></ion-img>
+        </ion-thumbnail>
+    </ion-slide>
+    <ion-slide>
+      <ion-thumbnail class="img-header-thumbnail" slot="start">
+        <ion-img class="img-header" src="../assets/image/legumes.jpg"></ion-img>
+      </ion-thumbnail>
+    </ion-slide>
+    <ion-slide>
+      <ion-thumbnail class="img-header-thumbnail" slot="start">
+        <ion-img class="img-header" src="../assets/image/deco.jpg"></ion-img>
+      </ion-thumbnail>
+    </ion-slide>   
+  </ion-slides>
+  <ion-slides class="slides-menu" [options]="slideOpts">
+    <ion-slide class="slide-menu">
+      <span>
+        <img src="../assets/image/bottle.png" alt="">
+      </span>
+    </ion-slide>
+    <ion-slide class="slide-menu">
+      <span>
+        <img src="../assets/image/diet.png" alt="">
+      </span>
+    </ion-slide>
+    <ion-slide class="slide-menu">
+      <span>
+        <img src="../assets/image/china.png" alt="">
+      </span>
+    </ion-slide>
+    <ion-slide class="slide-menu">
+      <span>
+        <img src="../assets/image/dairy-products.png" alt="">
+      </span>
+    </ion-slide>
+    <ion-slide class="slide-menu">
+      <span>
+        <img src="../assets/image/bottle.png" alt="">
+      </span>
+    </ion-slide>
+  </ion-slides>
+ 
 </ion-content>

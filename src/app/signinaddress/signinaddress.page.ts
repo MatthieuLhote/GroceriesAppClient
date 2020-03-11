@@ -17,13 +17,13 @@ export class SigninaddressPage implements OnInit {
   formAdress : any = {};
   person = {} as Person;
 
-  constructor(private nativeStorage : NativeStorage, private navCtrl : NavController, private http : HttpClient) { }
+  constructor(private nativeStorage : NativeStorage, private navCtrl : NavController, private http : HttpClient, private storage : NativeStorage) { }
 
   async ngOnInit() {
     this.person = await this.nativeStorage.getItem('personSignIn');
   }
 
-  submitAddressForm() : void {
+  async submitAddressForm() {
     console.log('FormResult', this.formAdress);
     this.address = this.formAdress;
     console.log('adressSignIn', this.address);
@@ -33,8 +33,9 @@ export class SigninaddressPage implements OnInit {
 
     
     this.http.post(url, this.address)
-      .subscribe((address : Address) =>{
+      .subscribe(async (address : Address) =>{
         console.log('AddresseSubscribed', address);
+        await this.storage.setItem('isLoggedIn', true);
         this.navCtrl.navigateForward('/home');
       })
 

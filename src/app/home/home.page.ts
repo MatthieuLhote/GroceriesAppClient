@@ -9,6 +9,18 @@ import { environnements } from 'src/models/environnements';
 })
 export class HomePage {
 
+  slideOpts = {
+    slidesPerView: 10,
+    freeMode: true,
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    }
+  }
+
   constructor(private http : HttpClient) {
     this.loadPeoples();
   }
