@@ -1,12 +1,16 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
+    <ion-menu-button slot="start"></ion-menu-button>
     <ion-title>
-      Blank
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    
+   
   <ion-slides class="header-img" pager="true">
     <ion-slide>
         <ion-thumbnail class="img-header-thumbnail" slot="start">
@@ -24,32 +28,83 @@
       </ion-thumbnail>
     </ion-slide>   
   </ion-slides>
+<ion-item>
   <ion-slides class="slides-menu" [options]="slideOpts">
-    <ion-slide class="slide-menu">
+    <ion-slide class="slide-menu" *ngFor="let category of categories">
       <span>
-        <img src="../assets/image/bottle.png" alt="">
-      </span>
-    </ion-slide>
-    <ion-slide class="slide-menu">
-      <span>
-        <img src="../assets/image/diet.png" alt="">
-      </span>
-    </ion-slide>
-    <ion-slide class="slide-menu">
-      <span>
-        <img src="../assets/image/china.png" alt="">
-      </span>
-    </ion-slide>
-    <ion-slide class="slide-menu">
-      <span>
-        <img src="../assets/image/dairy-products.png" alt="">
-      </span>
-    </ion-slide>
-    <ion-slide class="slide-menu">
-      <span>
-        <img src="../assets/image/bottle.png" alt="">
+        <img [src]="imageUrl+category.pictures" alt="">
+        <ion-label>{{category.name}}</ion-label>
       </span>
     </ion-slide>
   </ion-slides>
+</ion-item>
+
+    <ion-item>
+      <ion-label>Legumes promo</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-slides class="slides-menu" [options]="slideOpts">
+        <ion-slide class="slide-menu">
+          <span>
+            <img src="../assets/image/bottle.png" alt="">
+          </span>
+        </ion-slide>
+        <ion-slide class="slide-menu">
+          <span>
+            <img src="../assets/image/diet.png" alt="">
+          </span>
+        </ion-slide>
+        <ion-slide class="slide-menu">
+          <span>
+            <img src="../assets/image/china.png" alt="">
+          </span>
+        </ion-slide>
+        <ion-slide class="slide-menu">
+          <span>
+            <img src="../assets/image/dairy-products.png" alt="">
+          </span>
+        </ion-slide>
+        <ion-slide class="slide-menu">
+          <span>
+            <img src="../assets/image/bottle.png" alt="">
+          </span>
+        </ion-slide>
+      </ion-slides>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Drink promo
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-slides class="slides-menu" [options]="slideOpts">
+        <ion-slide class="slide-menu">
+          <span>
+            <img src="../assets/image/bottle.png" alt="">
+          </span>
+        </ion-slide>
+        <ion-slide class="slide-menu">
+          <span>
+            <img src="../assets/image/diet.png" alt="">
+          </span>
+        </ion-slide>
+        <ion-slide class="slide-menu">
+          <span>
+            <img src="../assets/image/china.png" alt="">
+          </span>
+        </ion-slide>
+        <ion-slide class="slide-menu">
+          <span>
+            <img src="../assets/image/dairy-products.png" alt="">
+          </span>
+        </ion-slide>
+        <ion-slide class="slide-menu">
+          <span>
+            <img src="../assets/image/bottle.png" alt="">
+          </span>
+        </ion-slide>
+      </ion-slides>
+    </ion-item>
+  </ion-list>
  
 </ion-content>

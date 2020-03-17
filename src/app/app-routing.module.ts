@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'signinaddress', pathMatch: 'full' },
+  { path: '', redirectTo: 'addproduct', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   {
     path: 'intro',
@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'signinaddress',
     loadChildren: () => import('./signinaddress/signinaddress.module').then( m => m.SigninaddressPageModule)
+  },
+  {
+    path: 'addproduct',
+    loadChildren: () => import('./addproduct/addproduct.module').then( m => m.AddproductPageModule)
   },
 ];
 

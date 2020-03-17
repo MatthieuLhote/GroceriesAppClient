@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
+import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 
 
 
@@ -24,6 +25,7 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
     StatusBar,
     SplashScreen,
     Facebook,
+    PhotoViewer,
     NativeStorage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
