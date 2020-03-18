@@ -14,6 +14,9 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 
 
 
@@ -25,7 +28,10 @@ import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
     StatusBar,
     SplashScreen,
     Facebook,
+    ImagePicker,
+    Camera,
     PhotoViewer,
+    FileTransfer,
     NativeStorage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

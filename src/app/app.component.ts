@@ -49,7 +49,7 @@ export class AppComponent {
       this.statusBar.styleDefault();
       if(loggedIn){
         console.log('Déjà connecté ! ');
-        this.navCtrl.navigateRoot('/home');
+        this.navCtrl.navigateRoot('/addproduct');
       }
       this.splashScreen.hide();
     });

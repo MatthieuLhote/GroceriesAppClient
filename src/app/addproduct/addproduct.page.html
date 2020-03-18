@@ -1,9 +1,81 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>addproduct</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Create product</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content>
+  <ion-list>
+  <ion-item-divider color="primary">
+    <ion-icon name="images"></ion-icon>
+    Images du produit
+  </ion-item-divider>
+  <ion-grid>
+    <ion-row>
+      <ion-item *ngFor="let picture of myPictures; let i = index">
+        <ion-thumbnail slot="start">
+          <ion-img [src]="picture"></ion-img>
+        </ion-thumbnail>
+        <ion-button slot="end" color="danger" size="small" (click)="delete(i)">
+          <ion-icon name="close-circle"></ion-icon>&nbsp;
+          Retirer
+        </ion-button>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-fab (click)="action()" horizontal="center">
+          <ion-fab-button>
+            <ion-icon name="camera"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-item-divider color="primary">
+    <ion-icon name="paper"></ion-icon>
+    Détails du produit
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-label position="floating">Nom</ion-label>
+    <ion-input type="text" [(ngModel)]="product.name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-textarea [(ngModel)]="product.description"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Prix (€)</ion-label>
+    <ion-input type="number" [(ngModel)]="product.price"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Nb availability</ion-label>
+    <ion-input type="number" [(ngModel)]="product.nbAvailability"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Product category</ion-label>
+    <ion-select [(ngModel)]="product.categoryId">
+      <ion-select-option [value]="cat.id" *ngFor="let cat of categories">{{ cat.name }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Delivery type</ion-label>
+    <ion-select [(ngModel)]="product.deliveryTypeId">
+      <ion-select-option [value]="deliveryType.id" *ngFor="let deliveryType of deliveryType">{{ deliveryType.name }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="block" (click)="create()">
+    <ion-icon slot="start" name="create"></ion-icon>&nbsp;&nbsp;
+    Créer
+  </ion-button>
+
+</ion-list>
 </ion-content>
