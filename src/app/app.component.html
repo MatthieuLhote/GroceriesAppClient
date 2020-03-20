@@ -12,7 +12,7 @@
         <ion-list>
           <ion-item-divider color="primary">Catégories</ion-item-divider>
          <ion-menu-toggle>
-          <ion-item button (click)="showCategory(cat.name)" *ngFor="let cat of categories">
+          <ion-item button (click)="showCategory(cat.id)" *ngFor="let cat of categories">
             <ion-icon [name]="cat.icon" slot="start"></ion-icon>
             <div class="my-container-label">
               <ion-label class="my-label-title">{{cat.name}}</ion-label>

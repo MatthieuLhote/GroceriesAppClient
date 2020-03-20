@@ -30,7 +30,7 @@
   </ion-slides>
 <ion-item>
   <ion-slides class="slides-menu" [options]="slideOpts">
-    <ion-slide class="slide-menu" *ngFor="let category of categories">
+    <ion-slide class="slide-menu" *ngFor="let category of categories" (click)="showCategory(category.id)">
       <span>
         <img [src]="imageUrl+category.pictures" alt="">
         <ion-label>{{category.name}}</ion-label>

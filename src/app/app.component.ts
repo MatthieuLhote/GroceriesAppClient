@@ -66,4 +66,9 @@ export class AppComponent {
     console.log('route', route);
     this.navCtrl.navigateForward(`/${route}`);
   }
+
+  showCategory(categorieId: string){
+    console.log('categorie', categorieId);
+    this.navCtrl.navigateForward('/categorie/'+categorieId);
+  }
 }

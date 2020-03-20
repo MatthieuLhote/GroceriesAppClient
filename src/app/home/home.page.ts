@@ -6,6 +6,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import { Observable } from 'rxjs';
 import { Product } from 'src/models/product-interface';
 import { ProductByCategory } from 'src/models/productbycat-interface';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomePage {
   imageUrl : String;
   productByCategories:ProductByCategory[];
 
-  constructor(private http : HttpClient, private photoViewer: PhotoViewer) {
+  constructor(private http : HttpClient, private photoViewer: PhotoViewer, private navCtrl : NavController) {
     this.imageUrl = `${environnements.api_url}/Containers/photos/download/`;
     this.loadPeoples();
     this.productByCategories = [];
@@ -69,6 +70,11 @@ export class HomePage {
   loadProductsByCategories(categoryId:String):Observable<Product[]>{
     let url = `${environnements.api_url}/Products?filter=%7B%22where%22%3A%7B%22categoryId%22%3A%22${categoryId}%22%7D%7D`;
     return this.http.get<Product[]>(url);
+  }
+
+  showCategory(categorieId: string){
+    console.log('categorie', categorieId);
+    this.navCtrl.navigateForward('/categorie/'+categorieId);
   }
 
   GetSortOrder(prop) {  
