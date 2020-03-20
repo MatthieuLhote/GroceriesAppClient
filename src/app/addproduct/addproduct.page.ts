@@ -158,7 +158,7 @@ export class AddproductPage implements OnInit {
         this.imgUploaded = true;
       }
     }
-    return true;
+     return true;
   }
 
   async create(){

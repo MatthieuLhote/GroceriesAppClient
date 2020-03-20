@@ -4,6 +4,8 @@ import { environnements } from 'src/models/environnements';
 import { Category } from 'src/models/category-interface';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import { Observable } from 'rxjs';
+import { Product } from 'src/models/product-interface';
+import { ProductByCategory } from 'src/models/productbycat-interface';
 
 @Component({
   selector: 'app-home',
@@ -14,16 +16,38 @@ export class HomePage {
 
   categories : Category[];
   imageUrl : String;
+  productByCategories:ProductByCategory[];
 
   constructor(private http : HttpClient, private photoViewer: PhotoViewer) {
     this.imageUrl = `${environnements.api_url}/Containers/photos/download/`;
     this.loadPeoples();
-    this.loadCategories()
-      .subscribe((data : Category[]) => {
-        console.log('Categories', data);
-        data.sort(this.GetSortOrder("order"));
-        this.categories = data;
+    this.productByCategories = [];
+  }
+
+  async ngOnInit(){
+
+    await this.loadCategories()
+      .subscribe((cat : Category[]) => {
+        console.log('Categories', cat);
+        cat.sort(this.GetSortOrder("order"));
+        this.categories = cat;
+
+
+        this.categories.forEach(category => {
+          this.loadProductsByCategories(category.id)
+            .subscribe((data : Product[])=> {
+              
+              let prodByCat = new ProductByCategory(category, data);
+              this.productByCategories.push(prodByCat);
+              console.log(category.name,this.productByCategories);
+            })
+          
+        });
+
+
       })
+
+     
   }
 
   showImage(imgId : string, imgTitle:string, event){
@@ -42,6 +66,10 @@ export class HomePage {
     return this.http.get<Category[]>(url);
   }
 
+  loadProductsByCategories(categoryId:String):Observable<Product[]>{
+    let url = `${environnements.api_url}/Products?filter=%7B%22where%22%3A%7B%22categoryId%22%3A%22${categoryId}%22%7D%7D`;
+    return this.http.get<Product[]>(url);
+  }
 
   GetSortOrder(prop) {  
     return function(a, b) {  
